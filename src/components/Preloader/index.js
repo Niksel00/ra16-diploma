@@ -6,5 +6,5 @@ export default function Preloader() {
       <span></span>
       <span></span>
     </div>
-  )
+  );
 }

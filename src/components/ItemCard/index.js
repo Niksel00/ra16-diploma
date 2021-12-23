@@ -7,8 +7,9 @@ export default function ItemCard({ data, catalog }) {
     <div className={catalog ? "card catalog-item-card" : "card"}>
       <div className="card-img-container">
         <img
-          src={data.image[0]}
-          className="card-img-top img-fluid" 
+          src={data.images[0]}
+          className="card-img-top img-fluid"
+          alt={data.title}
           onError={(event) => (event.target.src = noimage)}
         />
       </div>
@@ -19,7 +20,7 @@ export default function ItemCard({ data, catalog }) {
           to={`${process.env.REACT_APP_LINK_CATALOG_ID}${data.id}.html`}
           className="btn btn-outline-primary"
         >
-          Заказать 
+          Заказать
         </Link>
       </div>
     </div>

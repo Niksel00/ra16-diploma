@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  inOpen: false,
+  isOpen: false,
   searchFormQ: "",
 };
 
-const searchFormSlice = createSlice ({
-  name: "searchFom",
+const searchFormSlice = createSlice({
+  name: "searchForm",
   initialState,
   reducers: {
     resetSearchFormState: () => initialState,

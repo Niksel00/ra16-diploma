@@ -15,16 +15,16 @@ export default function SearchForm() {
   const history = useHistory();
   const searchInput = useRef(null);
 
-  useEffect (() => {
+  useEffect(() => {
     if (isOpen) {
       searchInput.current.focus();
     }
   }, [isOpen]);
 
-  const handleSumbit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (search === "") {
-      dispatch (setOpen());
+      dispatch(setOpen());
     } else {
       if (history.location.pathname === process.env.REACT_APP_LINK_CATALOG) {
         dispatch(putSearch(search));
@@ -49,7 +49,7 @@ export default function SearchForm() {
       className={
         "header-controls-search-form form-inline" + (isOpen ? "" : " invisible")
       }
-      onSubmit={handleSumbit}
+      onSubmit={handleSubmit}
     >
       <input
         ref={searchInput}

@@ -28,11 +28,11 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const { id, size, count } = action.payload;
       const hasItem = state.items.findIndex(
-      (item) => item.id === id && item.size === size
+        (item) => item.id === id && item.size === size
       );
-      hasItem === 1
-      ? state.items.push(action.payload)
-      : (state.items[hasItem].count += count);
+      hasItem === -1
+        ? state.items.push(action.payload)
+        : (state.items[hasItem].count += count);
     },
     removeFromCart: (state, action) => {
       const { id, size } = action.payload;
@@ -40,7 +40,7 @@ const cartSlice = createSlice({
         (item) => item.id === id && item.size === size
       );
       if (indexItem !== -1) {
-        state.items.slice(indexItem, 1);
+        state.items.splice(indexItem, 1);
       }
     },
   },

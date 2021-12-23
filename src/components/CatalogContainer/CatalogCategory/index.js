@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
 import { catalogGetCategories } from "../../../reducers/catalogSlice";
 import CatalogCategoryItem from "./CatalogCategoryItem";
 
@@ -12,7 +12,7 @@ export default function CatalogCategory() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect (() => {
+  useEffect(() => {
     if (status.categories === "error") {
       setTimeout(() => dispatch(catalogGetCategories()), 1000);
     }

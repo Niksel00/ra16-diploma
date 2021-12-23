@@ -6,7 +6,7 @@ export default function MenuItem({ data }) {
   return (
     <li
       className={
-        location.pathname  === data.path ? "nav-item active" : "nav-item"
+        location.pathname === data.path ? "nav-item active" : "nav-item"
       }
     >
       <Link to={data.path} className="nav-link">

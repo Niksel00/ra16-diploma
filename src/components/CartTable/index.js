@@ -13,9 +13,9 @@ export default function CartTable() {
   }
 
   return (
-    <section class="cart">
-      <h2 class="text-center">Корзина</h2>
-      <table class="table table-bordered">
+    <section className="cart">
+      <h2 className="text-center">Корзина</h2>
+      <table className="table table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -28,12 +28,12 @@ export default function CartTable() {
           </tr>
         </thead>
         <tbody>
-          {items.map((item, row) => 
+          {items.map((item, row) =>
             <CartItem item={item} row={row} onRemove={handleRemove} key={item.id + item.size} />
           )}
           <tr>
-            <td colspan="5" class="text-right">Общая стоимость</td>
-            <td>{items.reduce((sum, item) => sum + (item.price), 0).toLocaleString()} руб.</td>
+            <td colSpan="5" className="text-right">Общая стоимость</td>
+            <td>{items.reduce((sum, item) => sum + (item.price * item.count), 0).toLocaleString()} руб.</td>
           </tr>
         </tbody>
       </table>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postOrder, resetCartStatus } from "../../reducers/cartSlice";
-import ErorLabel from "../ErrorLabel";
+import ErrorLabel from "../ErrorLabel";
 import Preloader from "../Preloader";
 
 export default function CartForm() {
   const { status } = useSelector((state) => state.cart);
-  const EMPTY_STATE = { phone: "", adress: "", agreement: false };
+  const EMPTY_STATE = { phone: "", address: "", agreement: false };
   const [form, setForm] = useState(EMPTY_STATE);
   const dispatch = useDispatch();
   
@@ -15,16 +15,16 @@ export default function CartForm() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSumbit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(postOrder({ phone: form.phone, adress: form.adress })).then(
+    dispatch(postOrder({ phone: form.phone, address: form.address })).then(
       setForm(EMPTY_STATE)
     );
   };
 
   const handleChange = ({ target }) => {
     const name = target.name;
-    const value = target.type === "checkbox" ? target.cheked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     setForm((prevState) => ({ ...prevState, [name]: value }));
   };
 
@@ -34,10 +34,10 @@ export default function CartForm() {
       {items.length > 0 && (
         <>
           <h2 className="text-center">Оформить заказ</h2>
-          <div className="card" style={{maxWidth: "30rem", margin: "0 auto;"}}>
-            <form className="card-body" onSubmit={handleSumbit}>
-              <div class="form-group">
-                <label for="phone">Телефон</label>
+          <div className="card" style={{ maxWidth: "30rem", margin: "0 auto" }}>
+            <form className="card-body" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="phone">Телефон</label>
                 <input 
                   className="form-control" 
                   name="phone"
@@ -48,8 +48,8 @@ export default function CartForm() {
                   required
                 />
               </div>
-              <div class="form-group">
-                <label for="address">Адрес доставки</label>
+              <div className="form-group">
+                <label htmlFor="address">Адрес доставки</label>
                 <input 
                   className="form-control"
                   name="address" 
@@ -60,22 +60,22 @@ export default function CartForm() {
                   required
                 />
               </div>
-              <div class="form-group form-check">
+              <div className="form-group form-check">
                 <input 
                   type="checkbox" 
                   className="form-check-input" 
                   name="agreement" 
                   id="agreement"
-                  value={form.agreement}
+                  checked={form.agreement}
                   onChange={handleChange}
                   required
                 />
-                <label className="form-check-label" for="agreement">
+                <label className="form-check-label" htmlFor="agreement">
                   Согласен с правилами доставки
                 </label>
               </div>
               {status === "error" ? (
-                <ErorLabel 
+                <ErrorLabel 
                   handleError={() => 
                     dispatch(
                       postOrder({ phone: form.phone, address: form.address }) 
@@ -85,7 +85,7 @@ export default function CartForm() {
               ) : status === "pending" ? (
                 <Preloader />
               ) : (
-                <button type="submit" class="btn btn-outline-secondary">
+                <button type="submit" className="btn btn-outline-secondary">
                   Оформить
                 </button>
               )}

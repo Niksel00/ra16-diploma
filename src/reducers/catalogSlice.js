@@ -6,12 +6,12 @@ const initialState = {
   categoryId: 0,
   showMore: true,
   searchQ: "",
-  status: { catalog: "idle",  offset: "idle", categories: "idle" },
+  status: { catalog: "idle", offset: "idle", categories: "idle" },
 };
 
 export const catalogGetAll = createAsyncThunk(
   "catalog/getAll",
-  async (_, { getState}) => {
+  async (_, { getState }) => {
     const { items, categoryId, searchQ } = getState().catalog;
     const params = new URLSearchParams({
       categoryId,
@@ -25,10 +25,10 @@ export const catalogGetAll = createAsyncThunk(
     return data;
   },
   {
-    condition: (_, {getState }) => {
+    condition: (_, { getState }) => {
       const { status } = getState().catalog;
       if (status.catalog === "pending" || status.offset === "pending") {
-        return false
+        return false;
       }
     },
   }
@@ -58,7 +58,7 @@ const catalogSlice = createSlice({
     putSearch: (state, action) => {
       state.items = [];
       state.showMore = true;
-      state.categoryId = action.payload;
+      state.searchQ = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -100,6 +100,6 @@ const catalogSlice = createSlice({
   },
 });
 
-export const { resetCatalogState, selectCategory, putSearch } = 
+export const { resetCatalogState, selectCategory, putSearch } =
   catalogSlice.actions;
 export default catalogSlice.reducer;

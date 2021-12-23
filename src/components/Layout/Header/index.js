@@ -6,15 +6,15 @@ import SearchForm from "./Search/SearchForm";
 
 export default function Header() {
   return (
-    <header class="container">
-      <div class="row">
-        <div class="col">
-          <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <header className="container">
+      <div className="row">
+        <div className="col">
+          <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <Logo />
-            <div class="collapase navbar-collapse" id="navbarMain">
+            <div className="collapase navbar-collapse" id="navbarMain">
               <NavBar />
               <div>
-                <div class="header-controls-pics">
+                <div className="header-controls-pics">
                   <SearchControl />
                   <CartControl />
                 </div>

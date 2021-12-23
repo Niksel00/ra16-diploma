@@ -10,5 +10,5 @@ export default function Payments() {
       <PaymentsItem classType={"webmoney"} />
       <PaymentsItem classType={"qiwi"} />
     </div>
-  )
+  );
 }

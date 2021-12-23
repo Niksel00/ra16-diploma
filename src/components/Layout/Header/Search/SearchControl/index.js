@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setOpen} from "../../../../../reducers/searchFormSlice";
+import { setOpen } from "../../../../../reducers/searchFormSlice";
 
 export default function SearchControl() {
   const dispatch = useDispatch();

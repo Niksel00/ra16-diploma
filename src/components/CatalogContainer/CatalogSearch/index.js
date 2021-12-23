@@ -7,11 +7,11 @@ export default function CatalogSearch() {
   const [search, setSearch] = useState(searchQ);
   const dispatch = useDispatch();
   
-  useEffect (() => {
+  useEffect(() => {
     setSearch(searchQ);
   }, [searchQ])
 
-  const handleSumbit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(putSearch(search));
     dispatch(catalogGetAll());
@@ -23,7 +23,7 @@ export default function CatalogSearch() {
   };
   
   return (
-    <form className="catalog-search-form form-inline" onSubmit={handleSumbit}>
+    <form className="catalog-search-form form-inline" onSubmit={handleSubmit}>
       <input
         name="search"
         className="form-control"

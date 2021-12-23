@@ -7,22 +7,22 @@ import Social from "./Social";
 
 export default function Footer() {
   return (
-    <footer class="container bg-light footer">
-      <div class="row">
-        <div class="col">
+    <footer className="container bg-light footer">
+      <div className="row">
+        <div className="col">
           <SectionBlock title="Информация">
             <Information />
           </SectionBlock>
         </div>
-        <div class="col">
-          <SectionBlock title="Принимаем к оплате">
+        <div className="col">
+          <SectionBlock title="Принимаем к оплате:">
             <Payments />
           </SectionBlock>
           <SectionBlock>
             <Copyright />
           </SectionBlock>
         </div>
-        <div class="col text-right">
+        <div className="col text-right">
           <SectionBlock title="Контакты:">
             <ContactsItem link={"tel:+7-495-790-35-03"} classNameType={"phone"}>
               +7 495 79 03 5 03

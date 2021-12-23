@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { topSalesGetAll } from "../../reducers/topSalesSlice";
 import Preloader from "../Preloader";
-import ErorLabel from "../ErrorLabel";
+import ErrorLabel from "../ErrorLabel";
 import ItemCard from "../ItemCard";
 
 export default function TopSales() {
@@ -27,7 +27,7 @@ export default function TopSales() {
     return (
       <section className="top-sales">
         <h2 className="text-center">Хиты продаж!</h2>
-        <ErorLabel handleError={() => dispatch(topSalesGetAll())} />
+        <ErrorLabel handleError={() => dispatch(topSalesGetAll())} />
       </section>
     );
   }
@@ -35,16 +35,16 @@ export default function TopSales() {
   return (
     items.length > 0 && (
       <section className="top-sales">
-      <h2 className="text-center">Хиты продаж!</h2>
+        <h2 className="text-center">Хиты продаж!</h2>
 
-      <div className="row">
-        {items.map((item) => (
-          <div className="col-4" key={item.id}>
-            <ItemCard data={item} />
-          </div>
-        ))}
-      </div>
-    </section>
+        <div className="row">
+          {items.map((item) => (
+            <div className="col-4" key={item.id}>
+              <ItemCard data={item} />
+            </div>
+          ))}
+        </div>
+      </section>
     )
   );
 }

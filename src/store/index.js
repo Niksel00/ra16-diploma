@@ -17,7 +17,7 @@ export const store = configureStore({
     catalogItem,
     cart,
   },
-  preloadedState: { cart: loadFromLocalStorage("cart")},
+  preloadedState: { cart: loadFromLocalStorage("cart") },
 });
 
 store.subscribe(() => {

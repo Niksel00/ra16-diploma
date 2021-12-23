@@ -6,7 +6,7 @@ export default function CartControl() {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(process.env.REACT_APP_LINK_CART)
+    history.push(process.env.REACT_APP_LINK_CART);
   }
 
   return (

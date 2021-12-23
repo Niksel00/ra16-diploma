@@ -5,7 +5,7 @@ import { itemGetData, resetItemState } from "../../reducers/catalogItemSlice";
 import { addToCart } from "../../reducers/cartSlice";
 import { useHistory } from "react-router-dom";
 import Preloader from "../Preloader";
-import ErorLabel from "../ErrorLabel";
+import ErrorLabel from "../ErrorLabel";
 import noimage from "../../img/noimage.png";
 
 export default function ItemFull({ id }) {
@@ -15,7 +15,7 @@ export default function ItemFull({ id }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  useEffect (() => {
+  useEffect(() => {
     dispatch(itemGetData(id));
     return () => {
       dispatch(resetItemState());
@@ -41,10 +41,10 @@ export default function ItemFull({ id }) {
         default:
           break;
       }
-    };      
+    };
   };
 
-  const handleSumbit = () => {
+  const handleSubmit = () => {
     const item = {
       id: Number(id),
       title: data.title,
@@ -68,7 +68,7 @@ export default function ItemFull({ id }) {
   if (status === "error") {
     return (
       <section className="catalog-item">
-        <ErorLabel handleError={() => dispatch(itemGetData(id))} />
+        <ErrorLabel handleError={() => dispatch(itemGetData(id))} />
       </section>
     );
   }
@@ -77,19 +77,19 @@ export default function ItemFull({ id }) {
     <>
       {data && (
         <section className="catalog-item">
-          <h2 class="text-center">{data.title}</h2>
-          <div class="row">
-            <div class="col-5">
+          <h2 className="text-center">{data.title}</h2>
+          <div className="row">
+            <div className="col-5">
               <img
                 src={data.images[0]}
-                className="img-fluid" 
+                className="img-fluid"
                 style={{ width: "100%" }}
                 alt=""
                 onError={(event) => (event.target.src = noimage)}
               />
             </div>
-            <div class="col-7">
-              <table class="table table-bordered">
+            <div className="col-7">
+              <table className="table table-bordered">
                 <tbody>
                   <tr>
                     <td>Артикул</td>
@@ -97,7 +97,7 @@ export default function ItemFull({ id }) {
                   </tr>
                   <tr>
                     <td>Производитель</td>
-                    <td>{data.manafacturer}</td>
+                    <td>{data.manufacturer}</td>
                   </tr>
                   <tr>
                     <td>Цвет</td>
@@ -117,13 +117,13 @@ export default function ItemFull({ id }) {
                   </tr>
                 </tbody>
               </table>
-              <div class="text-center">
+              <div className="text-center">
                 <p>
-                  Размеры в наличии: 
+                  Размеры в наличии:
                   {data.sizes
                     .filter((size) => size.avalible)
                     .map((item) => (
-                      <span 
+                      <span
                         className={
                           "catalog-item-size" + 
                           (selectedSize === item.size ? " selected" : "")
@@ -135,9 +135,9 @@ export default function ItemFull({ id }) {
                       </span>
                     ))} 
                 </p>
-                {data.sizes.filter((size) => size.avalible).lenght !== 0 && (
+                {data.sizes.filter((size) => size.avalible).length !== 0 && (
                   <p>
-                    Количество: 
+                    Количество:
                     <span className="btn-group btn-group-sm pl-2">
                       <button 
                         className="btn btn-secondary"
@@ -160,10 +160,10 @@ export default function ItemFull({ id }) {
                   </p>
                 )}
               </div>
-              {data.size.filter((size) => size.avalible).lenght !== 0 && (
+              {data.sizes.filter((size) => size.avalible).length !== 0 && (
                 <button 
                   className="btn btn-danger btn-block btn-lg"
-                  onClick={handleSumbit}
+                  onClick={handleSubmit}
                   disabled={!selectedSize}
                 >
                   В корзину
@@ -178,5 +178,5 @@ export default function ItemFull({ id }) {
 }
 
 ItemFull.propTypes = {
-  idle: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
