@@ -19,6 +19,6 @@ const searchFormSlice = createSlice({
   },
 });
 
-export const { resetSearchFormState, setOpen, setSearchFormQuery } = 
+export const { resetSearchFormState, setOpen, setSearchFormQuery } =
   searchFormSlice.actions;
 export default searchFormSlice.reducer;

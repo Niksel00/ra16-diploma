@@ -6,7 +6,6 @@ export default function Information() {
     { id: 1, title: "Каталог", path: process.env.REACT_APP_LINK_CATALOG },
     { id: 2, title: "Контакты", path: process.env.REACT_APP_LINK_CONTACTS },
   ];
-
   return (
     <ul className="nav flex-column">
       {informationItems.map((item) => (

@@ -9,7 +9,7 @@ export default function CartForm() {
   const EMPTY_STATE = { phone: "", address: "", agreement: false };
   const [form, setForm] = useState(EMPTY_STATE);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     return () => dispatch(resetCartStatus());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,10 +38,10 @@ export default function CartForm() {
             <form className="card-body" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="phone">Телефон</label>
-                <input 
-                  className="form-control" 
+                <input
+                  className="form-control"
                   name="phone"
-                  id="phone" 
+                  id="phone"
                   placeholder="Ваш телефон"
                   value={form.phone}
                   onChange={handleChange}
@@ -50,10 +50,10 @@ export default function CartForm() {
               </div>
               <div className="form-group">
                 <label htmlFor="address">Адрес доставки</label>
-                <input 
+                <input
                   className="form-control"
-                  name="address" 
-                  id="address" 
+                  name="address"
+                  id="address"
                   placeholder="Адрес доставки"
                   value={form.address}
                   onChange={handleChange}
@@ -61,10 +61,10 @@ export default function CartForm() {
                 />
               </div>
               <div className="form-group form-check">
-                <input 
-                  type="checkbox" 
-                  className="form-check-input" 
-                  name="agreement" 
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  name="agreement"
                   id="agreement"
                   checked={form.agreement}
                   onChange={handleChange}
@@ -75,10 +75,10 @@ export default function CartForm() {
                 </label>
               </div>
               {status === "error" ? (
-                <ErrorLabel 
-                  handleError={() => 
+                <ErrorLabel
+                  handleError={() =>
                     dispatch(
-                      postOrder({ phone: form.phone, address: form.address }) 
+                      postOrder({ phone: form.phone, address: form.address })
                     ).then(setForm(EMPTY_STATE))
                   }
                 />
@@ -94,7 +94,7 @@ export default function CartForm() {
         </>
       )}
       {status === "success" && (
-        <div 
+        <div
           className="alert alert-success d-flex justify-content-center"
           role="alert"
         >

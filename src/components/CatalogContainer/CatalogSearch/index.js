@@ -6,7 +6,7 @@ export default function CatalogSearch() {
   const { searchQ } = useSelector((state) => state.catalog);
   const [search, setSearch] = useState(searchQ);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     setSearch(searchQ);
   }, [searchQ])
@@ -21,7 +21,6 @@ export default function CatalogSearch() {
     const { value } = event.target;
     setSearch(value);
   };
-  
   return (
     <form className="catalog-search-form form-inline" onSubmit={handleSubmit}>
       <input

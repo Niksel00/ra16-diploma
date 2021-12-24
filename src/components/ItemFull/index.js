@@ -125,7 +125,7 @@ export default function ItemFull({ id }) {
                     .map((item) => (
                       <span
                         className={
-                          "catalog-item-size" + 
+                          "catalog-item-size" +
                           (selectedSize === item.size ? " selected" : "")
                         }
                         key={item.size}
@@ -133,13 +133,13 @@ export default function ItemFull({ id }) {
                       >
                         {item.size}
                       </span>
-                    ))} 
+                    ))}
                 </p>
                 {data.sizes.filter((size) => size.avalible).length !== 0 && (
                   <p>
                     Количество:
                     <span className="btn-group btn-group-sm pl-2">
-                      <button 
+                      <button
                         className="btn btn-secondary"
                         onClick={handleQuantity("-")}
                         disabled={quantity <= 1}
@@ -149,7 +149,7 @@ export default function ItemFull({ id }) {
                       <span className="btn btn-outline-primary">
                         {quantity}
                       </span>
-                      <button 
+                      <button
                         className="btn btn-secondary"
                         onClick={handleQuantity("+")}
                         disabled={quantity >= 10}
@@ -161,7 +161,7 @@ export default function ItemFull({ id }) {
                 )}
               </div>
               {data.sizes.filter((size) => size.avalible).length !== 0 && (
-                <button 
+                <button
                   className="btn btn-danger btn-block btn-lg"
                   onClick={handleSubmit}
                   disabled={!selectedSize}
