@@ -1,7 +1,7 @@
 REACT_APP_SHOP_API=https://ra16-diplom-backend.herokuapp.com/api/
-REACT_APP_LINK_HOME=https://ra16-diplom-backend.herokuapp.com/api/
-REACT_APP_LINK_CATALOG=https://ra16-diplom-backend.herokuapp.com/api/catalog.html
-REACT_APP_LINK_CATALOG_ID=https://ra16-diplom-backend.herokuapp.com/api/catalog/
-REACT_APP_LINK_ABOUT=https://ra16-diplom-backend.herokuapp.com/api/about.html
-REACT_APP_LINK_CONTACTS=https://ra16-diplom-backend.herokuapp.com/api/contacts.html
-REACT_APP_LINK_CART=https://ra16-diplom-backend.herokuapp.com/api/cart.html
+REACT_APP_LINK_HOME=/
+REACT_APP_LINK_CATALOG=/catalog.html
+REACT_APP_LINK_CATALOG_ID=/catalog/
+REACT_APP_LINK_ABOUT=/about.html
+REACT_APP_LINK_CONTACTS=/contacts.html
+REACT_APP_LINK_CART=/cart.html
